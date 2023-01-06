@@ -77,7 +77,7 @@ We can place an object, define a camera, light the scene and Three.js renders 3D
 
 <p class="break"></p>
 
-<img src='../images/threejs-structure.svg'/>
+<img src='./images/threejs-structure.svg'/>
 
 </div>
 
@@ -117,7 +117,7 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
 # Camera(2/2)
 
-## <img src='../images/camera.png'/>
+![center](./images/camera.png)
 
 ---
 
