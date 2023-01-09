@@ -16,24 +16,42 @@ Madapp
 
 # WebGL(Web Graphics Library)
 
-- JavaScript API for 2D / 3Dasdfasdf
-- No plug-ins
+- JavaScript API for 2D / 3D
 - HTML5 `<canvas>`
+- No plug-ins
 - OpenGL ES 2.0
+- Library for WebGL `Three.js`, `Babylon.js` ...
+
+---
+
+# WebGL Browser support
+
+![center](images/webgl_browser_support.png)
+
+---
+
+# WebGL 2.0 Browser support
+
+![center](images/webgl2_browser_support.png)
 
 ---
 
 # Three.js
 
-Powerful JavaScript 3D library
-Animated 3D graphics
-WebGL which allows for access to GPU
+![threejs_log](images/threejs_logo.png)
+
+- cross-browser JavaScript library for 3D
+- create and display animated 3D computer graphics in a web browser using WebGL
+- [three.js](https://threejs.org/)
 
 ---
 
 # Usage
 
-We can place an object, define a camera, light the scene and Three.js renders 3D image.
+We can
+
+- place an object,
+- define a camera,light the scene and Three.js renders 3D image.
 
 ---
 
