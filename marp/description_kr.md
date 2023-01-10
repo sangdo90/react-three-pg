@@ -50,8 +50,8 @@ Madapp
 
 We can
 
-- place an object,
-- define a camera,light the scene and Three.js renders 3D image.
+- Place an object,
+- define a camera, light the scene and Three.js renders 3D image.
 
 ---
 
@@ -200,13 +200,13 @@ cube.scale.set(1, 1, 1);
 <div class="twocols">
 
 Scale
-![scale](images/scale.png)
+![scale-image](images/scale.png)
 
 Rotation
-![scale](images/rotation.png)
+![Rotation-image](images/rotation.png)
 
 Translation
-![scale](images/translation.png)
+![Translation-image](images/translation.png)
 
 </div>
 
@@ -305,7 +305,7 @@ scene.add(ptLight);
 # react-three-fiber
 
 r3f는 커스텀 캐그와 컴포넌트로 구성되어있어서 관리 편함.
--> DOM과 유사하게 오브젝트를 관리할 수 있어 상대적으로 쉬움
+→ DOM과 유사하게 오브젝트를 관리할 수 있어 상대적으로 쉬움
 
 <div class="twocols">
 
