@@ -156,23 +156,21 @@ function Frame({
   const frame = useRef();
   const [, params] = useRoute("/item/:id");
   const [hovered, hover] = useState(false);
-  const [rnd] = useState(() => Math.random());
   const name = getUuid(url);
   const isActive = params?.id === name;
+  console.log(image);
   useCursor(hovered);
   useFrame((state, dt) => {
-    // image.current.material.zoom =
-    //   2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 2;
-    // easing.damp3(
-    //   image.current.scale,
-    //   [
-    //     0.9 * (!isActive && hovered ? 0.9 : 1),
-    //     0.9 * (!isActive && hovered ? 0.9 : 1),
-    //     1,
-    //   ],
-    //   0.1,
-    //   dt
-    // );
+    easing.damp3(
+      image.current.scale,
+      [
+        0.9 * (!isActive && hovered ? 0.9 : 1),
+        0.9 * (!isActive && hovered ? 0.9 : 1),
+        1,
+      ],
+      0.2,
+      dt
+    );
     easing.dampC(
       frame.current.material.color,
       hovered ? "#4980F7" : "white",
@@ -200,7 +198,7 @@ function Frame({
           <mesh
             ref={frame}
             raycast={() => null}
-            scale={[0.9, 0.93, 0.9]}
+            scale={[0.95, 0.95, 0.95]}
             position={[0, 0, 0.2]}
           >
             <boxGeometry />
