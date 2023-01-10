@@ -10,7 +10,7 @@ paginate: true
 
 Sangmin Do
 Madapp
-2023-01-11
+January 11, 2023
 
 ---
 
@@ -20,7 +20,40 @@ Madapp
 - HTML5 `<canvas>`
 - No plug-ins
 - OpenGL ES 2.0
+- GLSL(OpenGL Shading Language, OpenGL 셰이딩 언어)
 - Library for WebGL `Three.js`, `Babylon.js` ...
+
+---
+
+# WebGL basic concept
+
+<div class="twocols">
+
+- Vertex(정점)
+  - 정점의 정보를 가지고 있는 자료구조
+- Polygon(폐곡선)
+  - vertex를 연결해서 만든 면
+- Mesh
+  - polygon + vertex 집합
+- Vertex Shader
+  - 정점에서 호출되는 쉐이더. 정점 변환, 좌표 생성 및 변환 등에 적용
+- Rasterization(레스터화)
+  - Fragment Shader에서 처리 가능한 정보로 바꾸는 과정
+- Fragment Shader
+  - vertext shader, rasterizer 를 거친 데이터를 통해 각 픽셀의 값을 결정
+  - 픽셀값, 안개, texture 등 연산
+
+<img src="images/3d_basic.png" width="450"/>
+
+</div>
+
+---
+
+# Rendering pipeline
+
+<div style="text-align:center">
+  <img src="images/webgl_pipeline.png" width="80%" />
+</div>
 
 ---
 
@@ -52,6 +85,8 @@ We can
 
 - Place an object,
 - define a camera, light the scene and Three.js renders 3D image.
+
+<img src="images/render2.png" width="600"/>
 
 ---
 
@@ -106,7 +141,7 @@ We can
 <div class="twocols">
 
 - Three.js 의 핵심 개체
-- `Scene`과 `Camera` 객체를 넘겨 받아 카메라의 절두체(frustum) 안 3D 씬의 일부를 평면(2차원) 이미지로 렌더링
+- `Scene`과 `Camera` 객체를 넘겨 받아 카메라의 절두체(frustum) 안 3D `Scene` 일부를 평면(2차원) 이미지로 렌더링
 
 <p class="break"></p>
 
@@ -293,9 +328,11 @@ scene.add(ptLight);
 
 # react + three.js
 
-## [react-three-fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+## [react-three-fiber(r3f)](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
 
 - 간편한 코드작성 + 가독성
+  - r3f는 커스텀태그와 컴포넌트로 구성되어 있음
+→ DOM과 유사하게 오브젝트를 관리할 수 있어 상대적으로 쉬움
 - 메모리 관리 (elements 가 unmount 될때마다 메모리를 비워주를 로직이 패키지에 포함되어 있음)
 - 많이 사용하는 대부분의 기능들이 클래스화 되어있음
 - 확장성
@@ -304,10 +341,43 @@ scene.add(ptLight);
 
 # react-three-fiber
 
-r3f는 커스텀 캐그와 컴포넌트로 구성되어있어서 관리 편함.
-→ DOM과 유사하게 오브젝트를 관리할 수 있어 상대적으로 쉬움
-
 <div class="twocols">
+
+- react-three-fiber lib
+
+```javascript
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
+function MyRotatingBox() {
+  const myMesh = useRef();
+  useFrame(({ clock }) => {
+    const a = clock.getElapsedTime();
+    myMesh.current.rotation.x = a;
+  });
+
+  return (
+    <mesh ref={myMesh}>
+      <boxGeometry args={[2, 2, 2]} />
+      <meshStandardMaterial color={0xdddddd} />
+    </mesh>
+  );
+}
+
+export default function CubeRender() {
+  return (
+    <Canvas>
+      <ambientLight intensity={0.1} />
+      <MyRotatingBox />
+      <directionalLight />
+    </Canvas>
+  );
+}
+```
+
+<p class="break"></p>
+
+- three.js with JavaScript
 
 ```javascript
 const scene = new THREE.Scene();
@@ -337,43 +407,6 @@ function animate() {
 animate();
 ```
 
-three.js with JavaScript
-
-<p class="break"></p>
-
-```javascript
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
-
-function MyRotatingBox() {
-  const myMesh = useRef();
-
-  useFrame(({ clock }) => {
-    const a = clock.getElapsedTime();
-    myMesh.current.rotation.x = a;
-  });
-
-  return (
-    <mesh ref={myMesh}>
-      <boxGeometry args={[2, 2, 2]} />
-      <meshStandardMaterial color={0xdddddd} />
-    </mesh>
-  );
-}
-
-export default function CubeRender() {
-  return (
-    <Canvas>
-      <ambientLight intensity={0.1} />
-      <MyRotatingBox />
-      <directionalLight />
-    </Canvas>
-  );
-}
-```
-
-react-three-fiber lib
-
 </div>
 
 ---
@@ -397,12 +430,22 @@ return (
 # examples
 
 - [프리넷 NFT 갤러리 with three.js](https://sangdo90.github.io/)
+- [source code](https://github.com/sangdo90/react-three-pg)
+
+---
+
+# TODO
+
+- Three.js specific elements
+- WebGL 2.0
+- WebVR / WebAR / WebXR
 
 ---
 
 # ref
 
-- https://www.khronos.org/webgl/
-- https://threejs.org/
-- https://docs.pmnd.rs/react-three-fiber
-- https://github.com/pmndrs/drei
+- <https://webglfundamentals.org/webgl/lessons/ko/>
+- <https://www.khronos.org/webgl/>
+- <https://threejs.org/>
+- <https://docs.pmnd.rs/react-three-fiber>
+- <https://github.com/pmndrs/drei>
