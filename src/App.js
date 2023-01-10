@@ -4,7 +4,7 @@ import Cylinder3d from "./components/Cylinder3d";
 import { Scroll, ScrollControls } from "@react-three/drei";
 import { Items } from "./components/Items";
 import { Stars } from "./components/Stars";
-// import { Gallery } from "./components/Gallery";
+import { Gallery } from "./components/Gallery";
 
 function App() {
   return (
@@ -49,16 +49,15 @@ function App() {
           </ScrollControls>
         </Canvas>
       </div> */}
-      <div className="section">
-        {/* <div className="section-title">MADAPP</div> */}
+      {/* <div className="section">
         <Canvas camera={{ position: [0, 0, 1] }}>
           <Stars />
         </Canvas>
-      </div>
-
-      {/* <div className="section">
-        <Gallery />
       </div> */}
+
+      <div className="section">
+        <Gallery />
+      </div>
     </>
   );
 }
