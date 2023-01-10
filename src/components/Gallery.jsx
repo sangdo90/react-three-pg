@@ -19,33 +19,42 @@ import { Stars } from "./Stars";
 
 const GOLDENRATIO = 1.61803398875;
 
+const defaultUrl =
+  "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260";
+
 const imgs = [
   {
     position: [-0.65, 0, 0.75],
     rotation: [0, 0, 0],
+    url: defaultUrl,
   },
   {
     position: [0.65, 0, 0.75],
     rotation: [0, 0, 0],
+    url: defaultUrl,
   },
   // Left
   {
     position: [-1.75, 0, 1.25],
     rotation: [0, Math.PI / 7, 0],
+    url: defaultUrl,
   },
   {
     position: [-2.5, 0, 2.25],
     rotation: [0, Math.PI / 3.5, 0],
+    url: defaultUrl,
   },
   // Right
 
   {
     position: [1.75, 0, 1.25],
     rotation: [0, -Math.PI / 7, 0],
+    url: defaultUrl,
   },
   {
     position: [2.5, 0, 2.25],
     rotation: [0, -Math.PI / 3.5, 0],
+    url: defaultUrl,
   },
 ];
 
@@ -74,8 +83,7 @@ export const Gallery = () => {
 
   return (
     <>
-      <Canvas dpr={[1, 1.5]} camera={{ position: [0, 1, 1] }}>
-        <color attach="background" args={["#191919"]} />
+      <Canvas camera={{ position: [0, 1, 1] }}>
         <Stars />
         <fog attach="fog" args={["#191919", 0, 15]} />
         <group position={[0, -0.5, 0]}>
@@ -96,7 +104,7 @@ export const Gallery = () => {
             />
           </mesh>
         </group>
-        <Environment preset="city" />
+        <Environment preset="warehouse" />
       </Canvas>
     </>
   );
@@ -111,7 +119,7 @@ function Frames({
   const clicked = useRef();
   const [, params] = useRoute("/item/:id");
   const [, setLocation] = useLocation();
-  console.log(params);
+
   useEffect(() => {
     clicked.current = ref.current.getObjectByName(params?.id);
     if (clicked.current) {
@@ -158,7 +166,7 @@ function Frame({
   const [hovered, hover] = useState(false);
   const name = getUuid(url);
   const isActive = params?.id === name;
-  console.log(image);
+
   useCursor(hovered);
   useFrame((state, dt) => {
     easing.damp3(
@@ -230,7 +238,7 @@ function Frame({
           position={[0.55, GOLDENRATIO, 0]}
           fontSize={0.025}
         >
-          {attrs.map((attr) => {
+          {attrs?.map((attr) => {
             return `${attr.value}\n`;
           })}
         </Text>

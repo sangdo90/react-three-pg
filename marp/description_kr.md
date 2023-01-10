@@ -103,8 +103,16 @@ We can
 
 # Renderer
 
+<div class="twocols">
+
 - Three.js 의 핵심 개체
 - `Scene`과 `Camera` 객체를 넘겨 받아 카메라의 절두체(frustum) 안 3D 씬의 일부를 평면(2차원) 이미지로 렌더링
+
+<p class="break"></p>
+
+![render](images/render2.png)
+
+</div>
 
 ---
 
@@ -125,7 +133,7 @@ scene.add(ambienLight);
 
 - A camera is your view port to look at the objects in a scene.
 - 객체를 활영하여 어떻게 보여줄것인가를 결정
-- 같은 Scene이라도 카메라 위치 및 설정값들에 따라 다른 화면을 보여줄 수 있음
+- 같은 `Scene` 이라도 카메라 위치 및 설정값들에 따라 다른 화면을 보여줄 수 있음
 
 ```javascript
 const fov = 75; // field of view(시야각)
@@ -139,7 +147,13 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
 # Camera(2/2)
 
-![center](./images/camera.png)
+<div class="twocols">
+
+![camera](./images/camera.png)
+
+![camera-types](./images/camera_types.png)
+
+</div>
 
 ---
 
@@ -150,10 +164,51 @@ const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 
 ```javascript
 let cubeGeometry = new THREE.BoxGeometry(10, 10, 10);
-let cubeMaterial = new THREE.MeshLambertMaterial({ color: 0xFFDFFA });
+let cubeMaterial = new THREE.MeshLambertMaterial({ color: 0xffdffa });
 let cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 cube.position.set(1, 2, 0);
 ```
+
+---
+
+# 3D Object
+
+<div class="twocols">
+
+- 3차원 좌표계를 통해 표현
+  - Position
+  - Scale
+  - Rotation
+- Parents properties affect the children objects
+
+<p class="break"></p>
+
+![3d](images/3_dimenssion.png)
+
+```javascript
+...
+cube.position.set(1, 2, 0);
+cube.rotation.y = 3.14;
+cube.scale.set(1, 1, 1);
+
+```
+
+---
+
+# 3D object set
+
+<div class="twocols">
+
+Scale
+![scale](images/scale.png)
+
+Rotation
+![scale](images/rotation.png)
+
+Translation
+![scale](images/translation.png)
+
+</div>
 
 ---
 
@@ -162,6 +217,8 @@ cube.position.set(1, 2, 0);
 - 기하학 객체의 정점 데이터
 - 구(sphere), 정육면체(cube), 면(plane), 개, 고양이, 사람, 나무, 건물 등
 - built-in Geometry 객체 제공
+
+![center](images/geometries.png)
 
 ---
 
@@ -185,11 +242,34 @@ const mesh = new THREE.mesh(geometry, material);
 
 # Texture
 
-- 이미지, 파일에서 로드한 이미지, `canvas`로 생성한 이밎, 다른 scene 객체에서 렌더링한 결과물
+<div class="twocols">
+
+- 이미지, 파일에서 로드한 이미지, `canvas`로 생성한 이미지, 다른 scene 객체에서 렌더링한 결과물
+
+```javascript
+const loader = new THREE.TextureLoader();
+
+const material = new THREE.MeshBasicMaterial({
+  color: 0xdddddd,
+  map: loader.load(
+    "https://r105.threejsfundamentals.org/threejs/resources/images/wall.jpg"
+  ),
+});
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+```
+
+<p class="break"></p>
+
+![texture](images/texture_ex.png)
+
+</div>
 
 ---
 
 # Lights
+
+<div class="twocols">
 
 - 주변광(AmbientLight), 집중광(SpotLight) 등 여러 종류의 광원
 
@@ -206,6 +286,123 @@ ptLight.position.z = 120;
 scene.add(ptLight);
 ```
 
+<img src="./images/light.png" />
+</div>
+
+---
+
+# react + three.js
+
+## [react-three-fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+
+- 간편한 코드작성 + 가독성
+- 메모리 관리 (elements 가 unmount 될때마다 메모리를 비워주를 로직이 패키지에 포함되어 있음)
+- 많이 사용하는 대부분의 기능들이 클래스화 되어있음
+- 확장성
+
+---
+
+# react-three-fiber
+
+r3f는 커스텀 캐그와 컴포넌트로 구성되어있어서 관리 편함.
+-> DOM과 유사하게 오브젝트를 관리할 수 있어 상대적으로 쉬움
+
+<div class="twocols">
+
+```javascript
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const geometry = new THREE.BoxGeometry(2, 2, 2);
+const material = new THREE.MeshBasicMaterial({ color: 0xdddddd });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+camera.position.z = 10;
+
+function animate() {
+  requestAnimationFrame(animate);
+  cube.rotation.x += 0.02;
+  renderer.render(scene, camera);
+}
+animate();
+```
+
+three.js with JavaScript
+
+<p class="break"></p>
+
+```javascript
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
+function MyRotatingBox() {
+  const myMesh = useRef();
+
+  useFrame(({ clock }) => {
+    const a = clock.getElapsedTime();
+    myMesh.current.rotation.x = a;
+  });
+
+  return (
+    <mesh ref={myMesh}>
+      <boxGeometry args={[2, 2, 2]} />
+      <meshStandardMaterial color={0xdddddd} />
+    </mesh>
+  );
+}
+
+export default function CubeRender() {
+  return (
+    <Canvas>
+      <ambientLight intensity={0.1} />
+      <MyRotatingBox />
+      <directionalLight />
+    </Canvas>
+  );
+}
+```
+
+react-three-fiber lib
+
+</div>
+
+---
+
+# three.js vs react-three-fiber
+
+- three.js 코드와 같이 사용할 수 있음
+
+```javascript
+const pureThreeJsGeometry = new THREE.BufferGeometry( ... );
+return (
+    <mesh>
+        <primitive attach="geometry" object={pureThreeJsGeometry} /> //
+        <meshStandardMaterial color={0xff3300} />
+    </mesh>
+)
+```
+
 ---
 
 # examples
+
+- [프리넷 NFT 갤러리 with three.js](https://sangdo90.github.io/)
+
+---
+
+# ref
+
+- https://www.khronos.org/webgl/
+- https://threejs.org/
+- https://docs.pmnd.rs/react-three-fiber
+- https://github.com/pmndrs/drei
