@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>description_kr.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- _class: title -->
+<h1 id="byfactory-%EB%A9%94%ED%83%80%EB%B2%84%EC%8A%A4-%EA%B8%B0%ED%9A%8D">Byfactory 메타버스 기획</h1>
+<p>Sangmin Do
+Madapp
+March 16, 2023</p>
+<hr>
+<h1 id="webglweb-graphics-library">WebGL(Web Graphics Library)</h1>
+<ul>
+<li>JavaScript API for 2D / 3D</li>
+<li>HTML5 <code>&lt;canvas&gt;</code></li>
+<li>No plug-ins</li>
+<li>OpenGL ES 2.0</li>
+<li>GLSL(OpenGL Shading Language, OpenGL 셰이딩 언어)</li>
+<li>Library for WebGL <code>Three.js</code>, <code>Babylon.js</code> ...</li>
+</ul>
+<hr>
+<h1 id="webgl-basic-concept">WebGL basic concept</h1>
+<div class="twocols">
+</div><ul>
+<li>Vertex(정점)
+<ul>
+<li>정점의 정보를 가지고 있는 자료구조</li>
+</ul>
+</li>
+<li>Polygon(폐곡선)
+<ul>
+<li>vertex를 연결해서 만든 면</li>
+</ul>
+</li>
+<li>Mesh
+<ul>
+<li>polygon + vertex 집합</li>
+</ul>
+</li>
+<li>Vertex Shader
+<ul>
+<li>정점에서 호출되는 쉐이더. 정점 변환, 좌표 생성 및 변환 등에 적용</li>
+</ul>
+</li>
+<li>Rasterization(레스터화)
+<ul>
+<li>Fragment Shader에서 처리 가능한 정보로 바꾸는 과정</li>
+</ul>
+</li>
+<li>Fragment Shader
+<ul>
+<li>vertext shader, rasterizer 를 거친 데이터를 통해 각 픽셀의 값을 결정</li>
+<li>픽셀값, 안개, texture 등 연산</li>
+</ul>
+</li>
+</ul>
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/3d_basic.png" width="450">
+
+<hr>
+<h1 id="rendering-pipeline">Rendering pipeline</h1>
+<div style="text-align:center">
+  <img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/webgl_pipeline.png" width="80%">
+</div>
+<hr>
+<h1 id="webgl-browser-support">WebGL Browser support</h1>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/webgl_browser_support.png" alt="center"></p>
+<hr>
+<h1 id="webgl-20-browser-support">WebGL 2.0 Browser support</h1>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/webgl2_browser_support.png" alt="center"></p>
+<hr>
+<h1 id="threejs">Three.js</h1>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/threejs_logo.png" alt="threejs_log"></p>
+<ul>
+<li>cross-browser JavaScript library for 3D</li>
+<li>create and display animated 3D computer graphics in a web browser using WebGL</li>
+<li><a href="https://threejs.org/">three.js</a></li>
+</ul>
+<hr>
+<h1 id="usage">Usage</h1>
+<p>We can</p>
+<ul>
+<li>Place an object,</li>
+<li>define a camera, light the scene and Three.js renders 3D image.</li>
+</ul>
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/render2.png" width="600">
+<hr>
+<h1 id="simple-usage">Simple usage</h1>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>My first three.js app<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+      <span class="hljs-selector-tag">body</span> {
+        <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+      }
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/three.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
+      <span class="hljs-comment">// Our Javascript will go here.as</span>
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+<hr>
+<h1 id="fundamentals-of-threejs">Fundamentals of three.js</h1>
+<div class="twocols">
+</div><ul>
+<li>Renderer</li>
+<li>Scene</li>
+<li>Camera</li>
+<li>Mesh</li>
+<li>Geometry</li>
+<li>Material</li>
+<li>Texture</li>
+<li>Light</li>
+</ul>
+<p class="break"></p>
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/threejs-structure.svg">
+
+<hr>
+<h1 id="renderer">Renderer</h1>
+<div class="twocols">
+</div><ul>
+<li>Three.js 의 핵심 개체</li>
+<li><code>Scene</code>과 <code>Camera</code> 객체를 넘겨 받아 카메라의 절두체(frustum) 안 3D <code>Scene</code> 일부를 평면(2차원) 이미지로 렌더링</li>
+</ul>
+<p class="break"></p>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/render2.png" alt="render"></p>
+
+<hr>
+<h1 id="scene">Scene</h1>
+<ul>
+<li>화면을 구성하는 물체(Object)와 광원(Light)를 좌표로 저장하고 관리</li>
+<li>물체와 광원을 생성한 뒤, 해당 객체를 Scene 객체에 포함시켜서 화면에 나타내게 함</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> scene = <span class="hljs-keyword">new</span> THREE.Scene();
+scene.add(cube);
+scene.add(ambienLight);
+</div></code></pre>
+<hr>
+<h1 id="camera12">Camera(1/2)</h1>
+<ul>
+<li>A camera is your view port to look at the objects in a scene.</li>
+<li>객체를 활영하여 어떻게 보여줄것인가를 결정</li>
+<li>같은 <code>Scene</code> 이라도 카메라 위치 및 설정값들에 따라 다른 화면을 보여줄 수 있음</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> fov = <span class="hljs-number">75</span>; <span class="hljs-comment">// field of view(시야각)</span>
+<span class="hljs-keyword">const</span> aspect = <span class="hljs-number">2</span>; <span class="hljs-comment">// the canvas default (캔버스 가로 세로 비율)</span>
+<span class="hljs-keyword">const</span> near = <span class="hljs-number">0.1</span>;
+<span class="hljs-keyword">const</span> far = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">const</span> camera = <span class="hljs-keyword">new</span> THREE.PerspectiveCamera(fov, aspect, near, far);
+</div></code></pre>
+<hr>
+<h1 id="camera22">Camera(2/2)</h1>
+<div class="twocols">
+</div><p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/camera.png" alt="camera"></p>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/camera_types.png" alt="camera-types"></p>
+
+<hr>
+<h1 id="mesh">Mesh</h1>
+<ul>
+<li><code>Geometry</code>와 <code>Material</code>로 만들어진 3D 화면을 구성하는 물체(Object)</li>
+<li>설정값을 통해서 3D 공간상의 위치와 자세를 결정할 수 있다.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">let</span> cubeGeometry = <span class="hljs-keyword">new</span> THREE.BoxGeometry(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);
+<span class="hljs-keyword">let</span> cubeMaterial = <span class="hljs-keyword">new</span> THREE.MeshLambertMaterial({ <span class="hljs-attr">color</span>: <span class="hljs-number">0xffdffa</span> });
+<span class="hljs-keyword">let</span> cube = <span class="hljs-keyword">new</span> THREE.Mesh(cubeGeometry, cubeMaterial);
+cube.position.set(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
+</div></code></pre>
+<hr>
+<h1 id="3d-object">3D Object</h1>
+<div class="twocols">
+</div><ul>
+<li>3차원 좌표계를 통해 표현
+<ul>
+<li>Position</li>
+<li>Scale</li>
+<li>Rotation</li>
+</ul>
+</li>
+<li>Parents properties affect the children objects</li>
+</ul>
+<p class="break"></p>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/3_dimenssion.png" alt="3d"></p>
+<pre class="hljs"><code><div>...
+cube.position.set(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>);
+cube.rotation.y = <span class="hljs-number">3.14</span>;
+cube.scale.set(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+
+</div></code></pre>
+<hr>
+<h1 id="3d-object-set">3D object set</h1>
+<div class="twocols">
+</div><p>Scale
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/scale.png" alt="scale-image"></p>
+<p>Rotation
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/rotation.png" alt="Rotation-image"></p>
+<p>Translation
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/translation.png" alt="Translation-image"></p>
+
+<hr>
+<h1 id="geometry">Geometry</h1>
+<ul>
+<li>기하학 객체의 정점 데이터</li>
+<li>구(sphere), 정육면체(cube), 면(plane), 개, 고양이, 사람, 나무, 건물 등</li>
+<li>built-in Geometry 객체 제공</li>
+</ul>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/geometries.png" alt="center"></p>
+<hr>
+<h1 id="material">Material</h1>
+<ul>
+<li>기하학 객체를 그리는데 사용하는 표면 속성</li>
+<li>색, 밝기 등 설정</li>
+<li>하나의 <code>Material</code>은 여러개의 <code>Texture</code>를 사용 가능</li>
+<li>주로 기하학 객체 표면을 이미지로 덮어씌울때 주로 사용</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> THREE.MeshStandardMaterial({
+  <span class="hljs-attr">color</span>: <span class="hljs-keyword">new</span> THREE.Color(<span class="hljs-string">"rgb(0, 150,140)"</span>),
+  <span class="hljs-attr">wireframe</span>: <span class="hljs-literal">true</span>,
+});
+
+<span class="hljs-keyword">const</span> mesh = <span class="hljs-keyword">new</span> THREE.mesh(geometry, material);
+</div></code></pre>
+<hr>
+<h1 id="texture">Texture</h1>
+<div class="twocols">
+</div><ul>
+<li>이미지, 파일에서 로드한 이미지, <code>canvas</code>로 생성한 이미지, 다른 scene 객체에서 렌더링한 결과물</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> loader = <span class="hljs-keyword">new</span> THREE.TextureLoader();
+
+<span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> THREE.MeshBasicMaterial({
+  <span class="hljs-attr">color</span>: <span class="hljs-number">0xdddddd</span>,
+  <span class="hljs-attr">map</span>: loader.load(
+    <span class="hljs-string">"https://r105.threejsfundamentals.org/threejs/resources/images/wall.jpg"</span>
+  ),
+});
+<span class="hljs-keyword">const</span> cube = <span class="hljs-keyword">new</span> THREE.Mesh(geometry, material);
+scene.add(cube);
+</div></code></pre>
+<p class="break"></p>
+<p><img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/texture_ex.png" alt="texture"></p>
+
+<hr>
+<h1 id="lights">Lights</h1>
+<div class="twocols">
+</div><ul>
+<li>주변광(AmbientLight), 집중광(SpotLight) 등 여러 종류의 광원</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-comment">// create a point light</span>
+<span class="hljs-keyword">var</span> ptLight = <span class="hljs-keyword">new</span> THREE.PointLight(<span class="hljs-number">0xffffff</span>);
+
+<span class="hljs-comment">// set its position</span>
+ptLight.position.x = <span class="hljs-number">10</span>;
+ptLight.position.y = <span class="hljs-number">50</span>;
+ptLight.position.z = <span class="hljs-number">120</span>;
+
+<span class="hljs-comment">// add to the scene</span>
+scene.add(ptLight);
+</div></code></pre>
+<img src="file:///Users/sangmindo/go/src/github.com/sangdo90/react-three-pg/marp/images/light.png">
+
+<hr>
+<h1 id="react--threejs">react + three.js</h1>
+<h2 id="react-three-fiberr3f"><a href="https://docs.pmnd.rs/react-three-fiber/getting-started/introduction">react-three-fiber(r3f)</a></h2>
+<ul>
+<li>간편한 코드작성 + 가독성
+<ul>
+<li>r3f는 커스텀태그와 컴포넌트로 구성되어 있음
+→ DOM과 유사하게 오브젝트를 관리할 수 있어 상대적으로 쉬움</li>
+</ul>
+</li>
+<li>메모리 관리 (elements 가 unmount 될때마다 메모리를 비워주를 로직이 패키지에 포함되어 있음)</li>
+<li>많이 사용하는 대부분의 기능들이 클래스화 되어있음</li>
+<li>확장성</li>
+</ul>
+<hr>
+<h1 id="react-three-fiber">react-three-fiber</h1>
+<div class="twocols">
+</div><ul>
+<li>react-three-fiber lib</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { Canvas, useFrame } <span class="hljs-keyword">from</span> <span class="hljs-string">"@react-three/fiber"</span>;
+<span class="hljs-keyword">import</span> { useRef } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">MyRotatingBox</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> myMesh = useRef();
+  useFrame(<span class="hljs-function">(<span class="hljs-params">{ clock }</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> a = clock.getElapsedTime();
+    myMesh.current.rotation.x = a;
+  });
+
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">mesh</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">{myMesh}</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">boxGeometry</span> <span class="hljs-attr">args</span>=<span class="hljs-string">{[2,</span> <span class="hljs-attr">2</span>, <span class="hljs-attr">2</span>]} /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">meshStandardMaterial</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{0xdddddd}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mesh</span>&gt;</span></span>
+  );
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">CubeRender</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Canvas</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ambientLight</span> <span class="hljs-attr">intensity</span>=<span class="hljs-string">{0.1}</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">MyRotatingBox</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">directionalLight</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Canvas</span>&gt;</span></span>
+  );
+}
+</div></code></pre>
+<p class="break"></p>
+<ul>
+<li>three.js with JavaScript</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> scene = <span class="hljs-keyword">new</span> THREE.Scene();
+<span class="hljs-keyword">const</span> camera = <span class="hljs-keyword">new</span> THREE.PerspectiveCamera(
+  <span class="hljs-number">75</span>,
+  <span class="hljs-built_in">window</span>.innerWidth / <span class="hljs-built_in">window</span>.innerHeight,
+  <span class="hljs-number">0.1</span>,
+  <span class="hljs-number">1000</span>
+);
+
+<span class="hljs-keyword">const</span> renderer = <span class="hljs-keyword">new</span> THREE.WebGLRenderer();
+renderer.setSize(<span class="hljs-built_in">window</span>.innerWidth, <span class="hljs-built_in">window</span>.innerHeight);
+<span class="hljs-built_in">document</span>.body.appendChild(renderer.domElement);
+
+<span class="hljs-keyword">const</span> geometry = <span class="hljs-keyword">new</span> THREE.BoxGeometry(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>);
+<span class="hljs-keyword">const</span> material = <span class="hljs-keyword">new</span> THREE.MeshBasicMaterial({ <span class="hljs-attr">color</span>: <span class="hljs-number">0xdddddd</span> });
+<span class="hljs-keyword">const</span> cube = <span class="hljs-keyword">new</span> THREE.Mesh(geometry, material);
+scene.add(cube);
+
+camera.position.z = <span class="hljs-number">10</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animate</span>(<span class="hljs-params"></span>) </span>{
+  requestAnimationFrame(animate);
+  cube.rotation.x += <span class="hljs-number">0.02</span>;
+  renderer.render(scene, camera);
+}
+animate();
+</div></code></pre>
+
+<hr>
+<h1 id="threejs-vs-react-three-fiber">three.js vs react-three-fiber</h1>
+<ul>
+<li>three.js 코드와 같이 사용할 수 있음</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">const</span> pureThreeJsGeometry = <span class="hljs-keyword">new</span> THREE.BufferGeometry( ... );
+<span class="hljs-keyword">return</span> (
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">mesh</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">primitive</span> <span class="hljs-attr">attach</span>=<span class="hljs-string">"geometry"</span> <span class="hljs-attr">object</span>=<span class="hljs-string">{pureThreeJsGeometry}</span> /&gt;</span> //
+        <span class="hljs-tag">&lt;<span class="hljs-name">meshStandardMaterial</span> <span class="hljs-attr">color</span>=<span class="hljs-string">{0xff3300}</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">mesh</span>&gt;</span></span>
+)
+</div></code></pre>
+<hr>
+<h1 id="examples">examples</h1>
+<ul>
+<li><a href="https://sangdo90.github.io/">프리넷 NFT 갤러리 with three.js</a></li>
+<li><a href="https://github.com/sangdo90/react-three-pg">source code</a></li>
+<li><a href="https://github.dev/sangdo90/react-three-pg">github.dev</a></li>
+</ul>
+<hr>
+<h1 id="todo">TODO</h1>
+<ul>
+<li>Three.js specific elements</li>
+<li>WebGL 2.0</li>
+<li>WebVR / WebAR / WebXR</li>
+</ul>
+<hr>
+<h1 id="ref">ref</h1>
+<ul>
+<li><a href="https://webglfundamentals.org/webgl/lessons/ko/">https://webglfundamentals.org/webgl/lessons/ko/</a></li>
+<li><a href="https://www.khronos.org/webgl/">https://www.khronos.org/webgl/</a></li>
+<li><a href="https://threejs.org/">https://threejs.org/</a></li>
+<li><a href="https://docs.pmnd.rs/react-three-fiber">https://docs.pmnd.rs/react-three-fiber</a></li>
+<li><a href="https://github.com/pmndrs/drei">https://github.com/pmndrs/drei</a></li>
+</ul>
+
+</body>
+</html>
